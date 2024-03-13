@@ -19,7 +19,7 @@ public class Trying extends JPanel implements ActionListener{
 		
 	}
 	
-	public void setup() {
+	public void setup(Trying p) {
 		JFrame f = new JFrame("Chinese Learning Game");
 		
 		JPanel card2 = new JPanel();
@@ -31,14 +31,14 @@ public class Trying extends JPanel implements ActionListener{
 		f.add(cards, BorderLayout.CENTER);
 		
 		f.setTitle("Chinese Learning game");
-		f.setSize(1500, 1000);
+		f.setSize(p.getWidth(), p.getHeight());
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
 	
 	public Trying() {
-		ImageIcon i = new ImageIcon("src/Graybackground.png");
+		ImageIcon i = new ImageIcon("src/Graybackground.jpg");
 		bg = i.getImage();
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
@@ -58,7 +58,11 @@ public class Trying extends JPanel implements ActionListener{
 	// background method
 	
 	public static void main(String[] args) {
-		Trying c2 = new Trying();
-		c2.setup();
+		Trying p = new Trying();
+		p.setup(p);
+		
 	}
-}
+	
+	}
+	
+
