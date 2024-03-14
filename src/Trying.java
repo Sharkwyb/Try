@@ -26,6 +26,7 @@ public class Trying extends JPanel implements ActionListener{
 		
 		cards = new JPanel(new CardLayout());
 		
+		cards.add(p, "C1");
 		cards.add(card2, "C2");
 		
 		f.add(cards, BorderLayout.CENTER);
@@ -42,6 +43,7 @@ public class Trying extends JPanel implements ActionListener{
 		bg = i.getImage();
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
+		System.out.println("Width: " + bg_width);
 		
 	}
 	public int getWidth() {
@@ -51,6 +53,7 @@ public class Trying extends JPanel implements ActionListener{
 		return bg_height;
 	}
 	public void paintComponent(Graphics g) {
+		System.out.println("Here");
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
