@@ -7,6 +7,7 @@ public class Trying extends JPanel implements ActionListener{
 	JPanel cards;
 	// cards
 	private Image bg;
+	private Image qu1;
 	private int bg_width;
 	private int bg_height;
 	private JLabel question; 
@@ -31,7 +32,7 @@ public class Trying extends JPanel implements ActionListener{
 		
 		
 		card2.setLayout(new FlowLayout());
-		question = new JLabel("What is Mother in Chinese?");
+		question = new JLabel("What is \"Mother\" in Chinese?");
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 20));
 		card1.add(question);
 		 
@@ -58,6 +59,9 @@ public class Trying extends JPanel implements ActionListener{
 		bg_height = bg.getHeight(null);
 		//System.out.println("Width: " + bg_width);
 		
+		//question image
+		ImageIcon i2 = new ImageIcon("src/popo.jpg");
+		qu1 = i2.getImage();
 	}
 	//background
 	
@@ -74,6 +78,7 @@ public class Trying extends JPanel implements ActionListener{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
+		g2d.drawImage(qu1, 200, 200, null);
 	}
 	// paint background method
 	
