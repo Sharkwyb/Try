@@ -11,7 +11,10 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private int bg_width;
 	private int bg_height;
 	private JLabel question; 
-
+	private int x;
+	//mouse location
+	private int y;
+	//mouse location
 
 	// Card2: First Level
 	// 3 birds, crossbow, arrow, 
@@ -88,19 +91,25 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 	public void mousePressed(MouseEvent evt) {
-		System.out.println("In Mouse Pressed");
+		
 	}
 	public void mouseClicked(MouseEvent evt) {
-		System.out.println("In Mouse Clicked");
+		x = evt.getX();
+		y = evt.getY();
+		//142, 110
+		if (x >= 200 && x <= 342 && y >= 200 && y <= 310) {
+			//jump card because correct
+			System.out.println("hdfgajhfa");
+		}
 	}
 	public void mouseReleased(MouseEvent e) {
-		System.out.println("In Mouse Released");
+		
 	}
 	public void mouseEntered(MouseEvent e) {
-		System.out.println("In Mouse Entered");
+
 	}
 	public void mouseExited(MouseEvent e) {
-		System.out.println("In Mouse Exited");
+		
 	}
 
 
