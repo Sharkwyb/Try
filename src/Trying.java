@@ -8,6 +8,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	// cards
 	private Image bg;
 	private Image qu1;
+	private Image qu2;
+	private Image qu3;
 	private int bg_width;
 	private int bg_height;
 	private JLabel question; 
@@ -62,9 +64,17 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		bg_height = bg.getHeight(null);
 		System.out.println("Width: " + bg_width);
 
-		//question image
-		ImageIcon i2 = new ImageIcon("src/mama.jpg");
+		//one out of three question image
+		ImageIcon i2 = new ImageIcon("src/mamal1.jpeg");
 		qu1 = i2.getImage();
+		
+		//two out of three question image
+		ImageIcon i3 = new ImageIcon("src/babal1.jpeg");
+		qu2 = i3.getImage();
+		
+		//three out of three question image
+		ImageIcon i4 = new ImageIcon("src/mamal1.jpeg");
+		qu3 = i4.getImage();
 		
 		//add mouse listener
 		addMouseListener(this);
@@ -84,7 +94,12 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
-		g2d.drawImage(qu1, 200, 200, null);
+		g2d.drawImage(qu1, 150, 200, null);
+		//316, 202 (mama)
+		g2d.drawImage(qu2, 566, 200, null);
+		//316, 204 (baba)
+		//566+316+100=666+316=   982
+		g2d.drawImage(qu3, 982, 200, null);
 	}
 	// paint background method
 
@@ -99,11 +114,11 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		//142, 110
 		if (x >= 200 && x <= 342 && y >= 200 && y <= 310) {
 			//jump card because correct
-			System.out.println("hdfgajhfa");
+			//System.out.println("hdfgajhfa");
 		}
 	}
 	public void mouseReleased(MouseEvent e) {
-		//?
+		
 	}
 	public void mouseEntered(MouseEvent e) {
 
