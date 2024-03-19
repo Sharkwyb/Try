@@ -103,7 +103,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		}
 	}
 	public void mouseReleased(MouseEvent e) {
-		
+		//?
 	}
 	public void mouseEntered(MouseEvent e) {
 
@@ -111,46 +111,6 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	public void mouseExited(MouseEvent e) {
 		
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
