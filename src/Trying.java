@@ -29,20 +29,20 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		JFrame f = new JFrame("Chinese Learning Game");
 
 		JPanel card1 = p;
-		JPanel card2 = new JPanel();
+		//JPanel card2 = new JPanel();
 
 		cards = new JPanel(new CardLayout());
 
 
 
 
-		card2.setLayout(new FlowLayout());
+		//card2.setLayout(new FlowLayout());
 		question = new JLabel("What is \"Mother\" in Chinese?");
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 20));
 		card1.add(question);
 
 		cards.add(card1, "C bg");
-		cards.add(card2, "C text");
+		//cards.add(card2, "C text");
 		f.add(cards);
 
 		f.add(cards, BorderLayout.CENTER);
@@ -73,7 +73,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qu2 = i3.getImage();
 		
 		//three out of three question image
-		ImageIcon i4 = new ImageIcon("src/mamal1.jpeg");
+		ImageIcon i4 = new ImageIcon("src/xiongdil1.jpeg");
 		qu3 = i4.getImage();
 		
 		//add mouse listener
@@ -94,12 +94,15 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
+		
 		g2d.drawImage(qu1, 150, 200, null);
 		//316, 202 (mama)
+		
 		g2d.drawImage(qu2, 566, 200, null);
 		//316, 204 (baba)
-		//566+316+100=666+316=   982
+		
 		g2d.drawImage(qu3, 982, 200, null);
+		//316, 204 (xiongdi)
 	}
 	// paint background method
 
