@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import javax.swing.ImageIcon;
 public class Trying extends JPanel implements ActionListener, MouseListener{
 
 	JPanel cards;
@@ -13,6 +13,11 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private int bg_width;
 	private int bg_height;
 	private JLabel question; 
+	private JButton qb1;
+	private int qb1_width;
+	private int qb1_height;
+	private JButton qb2;
+	private JButton qb3;
 	private int x;
 	//mouse location
 	private int y;
@@ -29,6 +34,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		JFrame f = new JFrame("Chinese Learning Game");
 
 		JPanel card1 = p;
+		p.setLayout(null);
 		//JPanel card2 = new JPanel();
 
 		cards = new JPanel(new CardLayout());
@@ -41,10 +47,19 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 20));
 		card1.add(question);
 
+		qb1 = new JButton();
+		qb1.setBounds(150, 200, 316,202);
+		qb1.setIcon(new ImageIcon("src/mamal1.jpeg"));
+		card1.add(qb1);
+		validate();
+		
+		
+		
+		
 		cards.add(card1, "C bg");
 		//cards.add(card2, "C text");
+		
 		f.add(cards);
-
 		f.add(cards, BorderLayout.CENTER);
 		f.setTitle("Chinese Learning game");
 		f.setSize(p.getWidth(), p.getHeight());
@@ -81,9 +96,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	}
 	//background
 
-	public int getWidth() {
-		return bg_width;
-	}
+	
 	public int getHeight() {
 		return bg_height;
 	}
@@ -95,7 +108,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
 		
-		g2d.drawImage(qu1, 150, 200, null);
+		//g2d.drawImage(qu1, 150, 200, null);
 		//316, 202 (mama)
 		
 		g2d.drawImage(qu2, 566, 200, null);
