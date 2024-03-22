@@ -45,20 +45,31 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		//card2.setLayout(new FlowLayout());
 		question = new JLabel("What is \"Mother\" in Chinese?");
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 20));
+		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
 
 		qb1 = new JButton();
 		qb1.setBounds(150, 200, 316,202);
 		qb1.setIcon(new ImageIcon("src/mamal1.jpeg"));
 		card1.add(qb1);
+		
+		qb2 = new JButton();
+		qb2.setBounds(566, 200, 316,202);
+		qb2.setIcon(new ImageIcon("src/babal1.jpeg"));
+		card1.add(qb2);
+		
+		qb3 = new JButton();
+		qb3.setBounds(982, 200, 316,202);
+		qb3.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
+		card1.add(qb3);
 		validate();
-		
-		
-		
-		
+
+
+
+
 		cards.add(card1, "C bg");
 		//cards.add(card2, "C text");
-		
+
 		f.add(cards);
 		f.add(cards, BorderLayout.CENTER);
 		f.setTitle("Chinese Learning game");
@@ -82,23 +93,26 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		//one out of three question image
 		ImageIcon i2 = new ImageIcon("src/mamal1.jpeg");
 		qu1 = i2.getImage();
-		
+
 		//two out of three question image
 		ImageIcon i3 = new ImageIcon("src/babal1.jpeg");
 		qu2 = i3.getImage();
-		
+
 		//three out of three question image
 		ImageIcon i4 = new ImageIcon("src/xiongdil1.jpeg");
 		qu3 = i4.getImage();
-		
+
 		//add mouse listener
 		addMouseListener(this);
 	}
 	//background
 
-	
+
 	public int getHeight() {
 		return bg_height;
+	}
+	public int getWidth() {
+		return bg_width;
 	}
 
 
@@ -107,14 +121,14 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
-		
+
 		//g2d.drawImage(qu1, 150, 200, null);
 		//316, 202 (mama)
-		
-		g2d.drawImage(qu2, 566, 200, null);
+
+		//g2d.drawImage(qu2, 566, 200, null);
 		//316, 204 (baba)
-		
-		g2d.drawImage(qu3, 982, 200, null);
+
+		//g2d.drawImage(qu3, 982, 200, null);
 		//316, 204 (xiongdi)
 	}
 	// paint background method
@@ -122,7 +136,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 	public void mousePressed(MouseEvent evt) {
-		
+
 	}
 	public void mouseClicked(MouseEvent evt) {
 		x = evt.getX();
@@ -134,13 +148,13 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		}
 	}
 	public void mouseReleased(MouseEvent e) {
-		
+
 	}
 	public void mouseEntered(MouseEvent e) {
 
 	}
 	public void mouseExited(MouseEvent e) {
-		
+
 	}
 
 
@@ -160,5 +174,4 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 }
-
 
