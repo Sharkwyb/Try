@@ -20,6 +20,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private int qb1_height;
 	private JButton qb2;
 	private JButton qb3;
+	private int scorecalculator =0;
+	private int totalscore =0;
 	private int x;
 	//mouse location
 	private int y;
@@ -31,8 +33,22 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == qb1) {
 			System.out.println("Here");
+			if (scorecalculator == 1) {
+				System.out.println("2 points!");
+			}
+			else if (scorecalculator == 2) {
+				System.out.println("1 point!");
+			}
 			CardLayout  p = (CardLayout)(cards.getLayout());
 			p.show(cards, "C text");
+		}
+		if (e.getSource() == qb2) {
+			scorecalculator += 1;
+			qb2.setVisible(false);
+		}
+		if (e.getSource() == qb3) {
+			scorecalculator += 1;
+			qb3.setVisible(false);
 		}
 			
 	}
