@@ -12,7 +12,9 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private Image qu3;
 	private int bg_width;
 	private int bg_height;
+	private int level = 0;
 	private JLabel question; 
+	private JLabel levelnumber;
 	private JButton qb1;
 	private int qb1_width;
 	private int qb1_height;
@@ -27,7 +29,12 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	// 3 birds, crossbow, arrow, 
 
 	public void actionPerformed(ActionEvent e) {
-
+		if (e.getSource() == qb1) {
+			System.out.println("Here");
+			CardLayout  p = (CardLayout)(cards.getLayout());
+			p.show(cards, "C text");
+		}
+			
 	}
 
 	public void setup(Trying p) {
@@ -35,6 +42,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		JPanel card1 = p;
 		p.setLayout(null);
+		JPanel card2 = new JPanel();
 		//JPanel card2 = new JPanel();
 
 		cards = new JPanel(new CardLayout());
@@ -44,31 +52,39 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		//card2.setLayout(new FlowLayout());
 		question = new JLabel("What is \"Mother\" in Chinese?");
-		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 20));
+		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
-
+		
+		level++;
+		levelnumber = new JLabel("Level "+ level);
+		levelnumber.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		levelnumber.setBounds(50, 20, 600, 100);
+		card1.add(levelnumber);
+				
 		qb1 = new JButton();
 		qb1.setBounds(150, 200, 316,202);
 		qb1.setIcon(new ImageIcon("src/mamal1.jpeg"));
+		qb1.addActionListener(this);
 		card1.add(qb1);
 		
 		qb2 = new JButton();
 		qb2.setBounds(566, 200, 316,202);
 		qb2.setIcon(new ImageIcon("src/babal1.jpeg"));
+		qb2.addActionListener(this);
 		card1.add(qb2);
 		
 		qb3 = new JButton();
 		qb3.setBounds(982, 200, 316,202);
 		qb3.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
+		qb3.addActionListener(this);
 		card1.add(qb3);
 		validate();
 
 
-
-
+		
 		cards.add(card1, "C bg");
-		//cards.add(card2, "C text");
+		cards.add(card2, "C text");
 
 		f.add(cards);
 		f.add(cards, BorderLayout.CENTER);
@@ -122,14 +138,6 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.drawImage(bg, 0, 0, null);
 
-		//g2d.drawImage(qu1, 150, 200, null);
-		//316, 202 (mama)
-
-		//g2d.drawImage(qu2, 566, 200, null);
-		//316, 204 (baba)
-
-		//g2d.drawImage(qu3, 982, 200, null);
-		//316, 204 (xiongdi)
 	}
 	// paint background method
 
