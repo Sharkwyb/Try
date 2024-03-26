@@ -34,13 +34,14 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		if (e.getSource() == qb1) {
 			System.out.println("Here");
 			if (scorecalculator == 1) {
-				System.out.println("2 points!");
+				//System.out.println("2 points!");
 			}
 			else if (scorecalculator == 2) {
-				System.out.println("1 point!");
+				//System.out.println("1 point!");
 			}
-			CardLayout  p = (CardLayout)(cards.getLayout());
-			p.show(cards, "C text");
+			qb1.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
+
+		
 		}
 		if (e.getSource() == qb2) {
 			scorecalculator += 1;
@@ -64,7 +65,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		cards = new JPanel(new CardLayout());
 
 
-
+		
 
 		//card2.setLayout(new FlowLayout());
 		question = new JLabel("What is \"Mother\" in Chinese?");
@@ -97,6 +98,14 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		card1.add(qb3);
 		validate();
 
+		
+		
+		
+		
+		
+
+		
+		
 
 		
 		cards.add(card1, "C bg");
