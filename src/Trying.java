@@ -22,30 +22,29 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private JButton qb3;
 	private int scorecalculator =0;
 	private int totalscore =0;
-	private int x;
-	//mouse location
-	private int y;
-	//mouse location
+	JButton[] answers = new JButton[6];
+	private int currQuestion=0;
+	
+	
 
 	// Card2: First Level
 	// 3 birds, crossbow, arrow, 
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == qb1) {
-			System.out.println("Here");
-			if (scorecalculator == 1) {
-				//System.out.println("2 points!");
-			}
-			else if (scorecalculator == 2) {
-				//System.out.println("1 point!");
-			}
-			qb1.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
-
-		
+		if (e.getSource() == answers[currQuestion]) {
+			currQuestion++;
+			System.out.println("Correct answer");
 		}
+		else {
+			
+		}
+		
 		if (e.getSource() == qb2) {
 			scorecalculator += 1;
 			qb2.setVisible(false);
+			
+			
+			///switch level problem
 		}
 		if (e.getSource() == qb3) {
 			scorecalculator += 1;
@@ -100,8 +99,9 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		
 		
-		
-		
+		// Setup all the correct answers
+		answers[0] = qb1;
+		answers[1] = 
 		
 
 		
@@ -172,13 +172,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 	}
 	public void mouseClicked(MouseEvent evt) {
-		x = evt.getX();
-		y = evt.getY();
-		//142, 110
-		if (x >= 200 && x <= 342 && y >= 200 && y <= 310) {
-			//jump card because correct
-			//System.out.println("hdfgajhfa");
-		}
+		
 	}
 	public void mouseReleased(MouseEvent e) {
 
