@@ -22,35 +22,27 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private JButton qb3;
 	private int scorecalculator =0;
 	private int totalscore =0;
-	JButton[] answers = new JButton[6];
-	private int currQuestion=0;
-	
-	
+	private int levelPosition=0;
+	JButton[] correctanswers = new JButton[6];
 
-	// Card2: First Level
-	// 3 birds, crossbow, arrow, 
+	String [] qb1Icon = new String[6];
+	String [] qb2Icon = new String[6];
+	String [] qb3Icon = new String[6];
 
+
+
+	//switch questions
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == answers[currQuestion]) {
-			currQuestion++;
-			System.out.println("Correct answer");
+		if (e.getSource() == correctanswers[levelPosition]) {
+			levelPosition++;
+			qb1.setIcon(new ImageIcon(qb1Icon[levelPosition]));
+
 		}
 		else {
-			
+
 		}
-		
-		if (e.getSource() == qb2) {
-			scorecalculator += 1;
-			qb2.setVisible(false);
-			
-			
-			///switch level problem
-		}
-		if (e.getSource() == qb3) {
-			scorecalculator += 1;
-			qb3.setVisible(false);
-		}
-			
+
+
 	}
 
 	public void setup(Trying p) {
@@ -64,32 +56,34 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		cards = new JPanel(new CardLayout());
 
 
-		
+		qb1Icon[0] = "src/mamal1.jpeg";
+		qb1Icon[1] = "src/longl2.jpeg";
+
 
 		//card2.setLayout(new FlowLayout());
 		question = new JLabel("What is \"Mother\" in Chinese?");
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
-		
+
 		level++;
 		levelnumber = new JLabel("Level "+ level);
 		levelnumber.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		levelnumber.setBounds(50, 20, 600, 100);
 		card1.add(levelnumber);
-				
+
 		qb1 = new JButton();
 		qb1.setBounds(150, 200, 316,202);
-		qb1.setIcon(new ImageIcon("src/mamal1.jpeg"));
+		qb1.setIcon(new ImageIcon(qb1Icon[0]));
 		qb1.addActionListener(this);
 		card1.add(qb1);
-		
+
 		qb2 = new JButton();
 		qb2.setBounds(566, 200, 316,202);
 		qb2.setIcon(new ImageIcon("src/babal1.jpeg"));
 		qb2.addActionListener(this);
 		card1.add(qb2);
-		
+
 		qb3 = new JButton();
 		qb3.setBounds(982, 200, 316,202);
 		qb3.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
@@ -97,17 +91,14 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		card1.add(qb3);
 		validate();
 
-		
-		
 		// Setup all the correct answers
-		answers[0] = qb1;
-		answers[1] = 
-		
+		correctanswers[0] = qb1;
 
-		
-		
 
-		
+
+
+
+
 		cards.add(card1, "C bg");
 		cards.add(card2, "C text");
 
@@ -172,7 +163,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 	}
 	public void mouseClicked(MouseEvent evt) {
-		
+
 	}
 	public void mouseReleased(MouseEvent e) {
 
