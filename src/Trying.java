@@ -24,7 +24,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private int totalscore =0;
 	private int levelPosition=0;
 	JButton[] correctanswers = new JButton[6];
-
+	String [] questionlist = new String[6];
 	String [] qb1Icon = new String[6];
 	String [] qb2Icon = new String[6];
 	String [] qb3Icon = new String[6];
@@ -36,10 +36,14 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		if (e.getSource() == correctanswers[levelPosition]) {
 			levelPosition++;
 			qb1.setIcon(new ImageIcon(qb1Icon[levelPosition]));
+			qb2.setIcon(new ImageIcon(qb2Icon[levelPosition]));
+			qb3.setIcon(new ImageIcon(qb3Icon[levelPosition]));
+			question.setText(questionlist[levelPosition]);
+	
 
 		}
-		else {
-
+		else {			
+			
 		}
 
 
@@ -59,9 +63,23 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb1Icon[0] = "src/mamal1.jpeg";
 		qb1Icon[1] = "src/longl2.jpeg";
 
-
+		qb2Icon[0] = "src/babal1.jpeg";
+		qb2Icon[1] = "src/dianhual2.jpeg";
+		
+		qb3Icon[0] = "src/xiongdil1.jpeg";
+		qb3Icon[1] = "src/ail2.jpeg";
+		
+		questionlist[0] = "What is \"Mother\" in Chinese?";
+		questionlist[1] = "What is \"phone\" in Chinese?";
+		
+		
+		
+		
+		
+		
+		
 		//card2.setLayout(new FlowLayout());
-		question = new JLabel("What is \"Mother\" in Chinese?");
+		question = new JLabel(questionlist[0]);
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
@@ -80,13 +98,13 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		qb2 = new JButton();
 		qb2.setBounds(566, 200, 316,202);
-		qb2.setIcon(new ImageIcon("src/babal1.jpeg"));
+		qb2.setIcon(new ImageIcon(qb2Icon[0]));
 		qb2.addActionListener(this);
 		card1.add(qb2);
 
 		qb3 = new JButton();
 		qb3.setBounds(982, 200, 316,202);
-		qb3.setIcon(new ImageIcon("src/xiongdil1.jpeg"));
+		qb3.setIcon(new ImageIcon(qb3Icon[0]));
 		qb3.addActionListener(this);
 		card1.add(qb3);
 		validate();
@@ -116,12 +134,13 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 	public Trying() {
+		
 		ImageIcon i = new ImageIcon("src/Graybackground.jpg");
 		bg = i.getImage();
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
 		System.out.println("Width: " + bg_width);
-
+/*
 		//one out of three question image
 		ImageIcon i2 = new ImageIcon("src/mamal1.jpeg");
 		qu1 = i2.getImage();
@@ -133,7 +152,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		//three out of three question image
 		ImageIcon i4 = new ImageIcon("src/xiongdil1.jpeg");
 		qu3 = i4.getImage();
-
+*/
 		//add mouse listener
 		addMouseListener(this);
 	}
