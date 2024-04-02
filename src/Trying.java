@@ -12,7 +12,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private Image qu3;
 	private int bg_width;
 	private int bg_height;
-	private int level = 0;
+	private int level = 1;
 	private JLabel question; 
 	private JLabel levelnumber;
 	private JButton qb1;
@@ -35,15 +35,24 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == correctanswers[levelPosition]) {
 			levelPosition++;
+			qb1.setVisible(true);
+			qb2.setVisible(true);
+			qb3.setVisible(true);
 			qb1.setIcon(new ImageIcon(qb1Icon[levelPosition]));
 			qb2.setIcon(new ImageIcon(qb2Icon[levelPosition]));
 			qb3.setIcon(new ImageIcon(qb3Icon[levelPosition]));
 			question.setText(questionlist[levelPosition]);
-	
+			levelnumber.setText("Level " + (levelPosition+1));
+
 
 		}
 		else {			
-			
+			if (e.getSource() == qb1)
+				qb1.setVisible(false);
+			else if (e.getSource() == qb2)
+				qb2.setVisible(false);
+			else
+				qb3.setVisible(false);
 		}
 
 
@@ -62,29 +71,37 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		qb1Icon[0] = "src/mamal1.jpeg";
 		qb1Icon[1] = "src/longl2.jpeg";
+		qb1Icon[2] = "src/bail3.jpg";
+
+		
 
 		qb2Icon[0] = "src/babal1.jpeg";
 		qb2Icon[1] = "src/dianhual2.jpeg";
-		
+		qb2Icon[2] = "src/chil3.jpg";
+
+
 		qb3Icon[0] = "src/xiongdil1.jpeg";
 		qb3Icon[1] = "src/ail2.jpeg";
-		
-		questionlist[0] = "What is \"Mother\" in Chinese?";
+		qb3Icon[2] = "src/bul3.jpg";
+
+
+		questionlist[0] = "What is \"mother\" in Chinese?";
 		questionlist[1] = "What is \"phone\" in Chinese?";
-		
-		
-		
-		
-		
-		
-		
+		questionlist[2] = "What is \"white\" in Chinese?";
+
+
+
+
+
+
+
 		//card2.setLayout(new FlowLayout());
 		question = new JLabel(questionlist[0]);
 		question.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
 
-		level++;
+		
 		levelnumber = new JLabel("Level "+ level);
 		levelnumber.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		levelnumber.setBounds(50, 20, 600, 100);
@@ -111,6 +128,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 		// Setup all the correct answers
 		correctanswers[0] = qb1;
+		correctanswers[1] = qb2;
+
 
 
 
@@ -134,26 +153,13 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 	public Trying() {
-		
+
 		ImageIcon i = new ImageIcon("src/Graybackground.jpg");
 		bg = i.getImage();
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
 		System.out.println("Width: " + bg_width);
-/*
-		//one out of three question image
-		ImageIcon i2 = new ImageIcon("src/mamal1.jpeg");
-		qu1 = i2.getImage();
-
-		//two out of three question image
-		ImageIcon i3 = new ImageIcon("src/babal1.jpeg");
-		qu2 = i3.getImage();
-
-		//three out of three question image
-		ImageIcon i4 = new ImageIcon("src/xiongdil1.jpeg");
-		qu3 = i4.getImage();
-*/
-		//add mouse listener
+		
 		addMouseListener(this);
 	}
 	//background
