@@ -15,6 +15,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private int level = 1;
 	private JLabel question; 
 	private JLabel levelnumber;
+	private JLabel scoreshowing;
 	private JButton qb1;
 	private int qb1_width;
 	private int qb1_height;
@@ -43,16 +44,37 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 			qb3.setIcon(new ImageIcon(qb3Icon[levelPosition]));
 			question.setText(questionlist[levelPosition]);
 			levelnumber.setText("Level " + (levelPosition+1));
-
-
+			
+			if (scorecalculator == 0) {
+				totalscore+=3;
+			}
+			else if (scorecalculator ==1) {
+				totalscore += 2;
+			}
+			else  {
+				totalscore +=1;
+			}
+			scorecalculator = 0;
+			scoreshowing.setText("Score: "+totalscore );
 		}
+		//private int scorecalculator =0;
+		//private int totalscore =0;
 		else {			
-			if (e.getSource() == qb1)
+			if (e.getSource() == qb1) {
 				qb1.setVisible(false);
-			else if (e.getSource() == qb2)
+				scorecalculator++;
+			}
+				
+			else if (e.getSource() == qb2) {
+				scorecalculator++;
 				qb2.setVisible(false);
-			else
+				
+			}
+			else {
 				qb3.setVisible(false);
+				scorecalculator++;
+			}
+				
 		}
 
 
@@ -72,22 +94,29 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb1Icon[0] = "src/mamal1.jpeg";
 		qb1Icon[1] = "src/longl2.jpeg";
 		qb1Icon[2] = "src/bail3.jpg";
-
+		qb1Icon[3] = "src/bul3.jpg";
+		qb1Icon[4] = "src/qianfangbail5.jpeg";
 		
 
 		qb2Icon[0] = "src/babal1.jpeg";
 		qb2Icon[1] = "src/dianhual2.jpeg";
 		qb2Icon[2] = "src/chil3.jpg";
-
+		qb2Icon[3] = "src/bi4.jpeg";
+        qb2Icon[4] = "src/xianfazhiren5.jpeg";
 
 		qb3Icon[0] = "src/xiongdil1.jpeg";
 		qb3Icon[1] = "src/ail2.jpeg";
 		qb3Icon[2] = "src/bul3.jpg";
-
+		qb3Icon[3] = "src/shide4.jpeg";
+		qb3Icon[4] = "src/bukesiyi.jpeg";
+        
+		
 
 		questionlist[0] = "What is \"mother\" in Chinese?";
 		questionlist[1] = "What is \"phone\" in Chinese?";
 		questionlist[2] = "What is \"white\" in Chinese?";
+		questionlist[3] = "What is \"no\" in Chinese?";
+		questionlist[4] = "What is \"unbeleiveable\" in Chinese? * CHALLENGE * ";
 
 
 
@@ -101,6 +130,10 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		question.setBounds(580, 20, 600, 100);
 		card1.add(question);
 
+		scoreshowing = new JLabel("Score: " + totalscore);
+		scoreshowing.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		scoreshowing.setBounds(1250, 20, 300, 100);
+		card1.add(scoreshowing);
 		
 		levelnumber = new JLabel("Level "+ level);
 		levelnumber.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
@@ -129,8 +162,9 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		// Setup all the correct answers
 		correctanswers[0] = qb1;
 		correctanswers[1] = qb2;
-
-
+        correctanswers[2] = qb1;
+        correctanswers[3] = qb1;
+        correctanswers[4] = qb3;
 
 
 
