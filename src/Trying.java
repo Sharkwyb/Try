@@ -43,7 +43,12 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 			qb2.setIcon(new ImageIcon(qb2Icon[levelPosition]));
 			qb3.setIcon(new ImageIcon(qb3Icon[levelPosition]));
 			question.setText(questionlist[levelPosition]);
+			question.setBounds(580, 20, 600, 100);
 			levelnumber.setText("Level " + (levelPosition+1));
+			
+			if (levelPosition == 4) {
+				question.setBounds(400, 20, 800, 100);
+			}
 			
 			if (scorecalculator == 0) {
 				totalscore+=3;
@@ -188,7 +193,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 	public Trying() {
 
-		ImageIcon i = new ImageIcon("src/Graybackground.jpg");
+		ImageIcon i = new ImageIcon("src/bgg2.jpg");
 		bg = i.getImage();
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
