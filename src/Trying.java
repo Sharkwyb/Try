@@ -10,20 +10,26 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private Image qu1;
 	private Image qu2;
 	private Image qu3;
+	
 	private int bg_width;
 	private int bg_height;
 	private int level = 1;
-	private JLabel question; 
-	private JLabel levelnumber;
-	private JLabel scoreshowing;
-	private JButton qb1;
-	private int qb1_width;
-	private int qb1_height;
-	private JButton qb2;
-	private JButton qb3;
 	private int scorecalculator =0;
 	private int totalscore =0;
 	private int levelPosition=0;
+	
+	private JLabel question; 
+	private JLabel levelnumber;
+	private JLabel scoreshowing;
+	private JLabel startingprank;
+	
+	private JButton qb1;
+	private JButton qb2;
+	private JButton qb3;
+	private JButton st1;
+	private JButton st2;
+	
+	
 	JButton[] correctanswers = new JButton[6];
 	String [] questionlist = new String[6];
 	String [] qb1Icon = new String[6];
@@ -34,7 +40,15 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 	//switch questions
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == correctanswers[levelPosition]) {
+		if (e.getSource() == st2) {
+			CardLayout cl = (CardLayout)(cards.getLayout());
+			cl.show(cards, "main");
+		}
+		else if (e.getSource() == st1) {
+			System.exit(0);
+		}
+		
+		else if (e.getSource() == correctanswers[levelPosition]) {
 			levelPosition++;
 			qb1.setVisible(true);
 			qb2.setVisible(true);
@@ -48,6 +62,9 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 			
 			if (levelPosition == 4) {
 				question.setBounds(400, 20, 800, 100);
+			}
+			if (levelPosition == 6) {
+				
 			}
 			
 			if (scorecalculator == 0) {
@@ -75,8 +92,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 				qb2.setVisible(false);
 				
 			}
-			else {
-				qb3.setVisible(false);
+			else if (e.getSource() == qb3){
+ 				qb3.setVisible(false);
 				scorecalculator++;
 			}
 				
@@ -88,9 +105,10 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	public void setup(Trying p) {
 		JFrame f = new JFrame("Chinese Learning Game");
 
-		JPanel card1 = p;
+		JPanel  card1 = p;
 		p.setLayout(null);
 		JPanel card2 = new JPanel();
+		card2.setLayout(null);
 		//JPanel card2 = new JPanel();
 
 		cards = new JPanel(new CardLayout());
@@ -171,15 +189,26 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
         correctanswers[3] = qb1;
         correctanswers[4] = qb3;
 
-
-
-
-
-		cards.add(card1, "C bg");
-		cards.add(card2, "C text");
+        startingprank = new JLabel("Guess which one is \"start\" in Chinese");
+        startingprank.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		startingprank.setBounds(300, 300, 700, 100);
+		card2.add(startingprank);
+		
+		st1 = new JButton("a");
+		st1.setBounds(100,100,100,100);
+		st1.addActionListener(this);
+		card2.add(st1);
+		
+		st2 = new JButton("b");
+		st2.setBounds(500,100,100,100);
+		st2.addActionListener(this);
+		card2.add(st2);
+		
+		
+		cards.add(card2, "start");
+		cards.add(card1, "main");
 
 		f.add(cards);
-		f.add(cards, BorderLayout.CENTER);
 		f.setTitle("Chinese Learning game");
 		f.setSize(p.getWidth(), p.getHeight());
 		f.setLocationRelativeTo(null);
@@ -256,4 +285,3 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 
 
 }
-
