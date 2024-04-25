@@ -30,11 +30,11 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private JButton st2;
 
 
-	JButton[] correctanswers = new JButton[6];
-	String [] questionlist = new String[6];
-	String [] qb1Icon = new String[6];
-	String [] qb2Icon = new String[6];
-	String [] qb3Icon = new String[6];
+	JButton[] correctanswers = new JButton[8];
+	String [] questionlist = new String[8];
+	String [] qb1Icon = new String[8];
+	String [] qb2Icon = new String[8];
+	String [] qb3Icon = new String[8];
 
 
 	//private int backgroundNum=0;
@@ -119,6 +119,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb1Icon[2] = "src/bail3.jpg";
 		qb1Icon[3] = "src/bul3.jpg";
 		qb1Icon[4] = "src/qianfangbail5.jpeg";
+		qb1Icon[5] = "src/KFC.jpg";
+
 
 
 		qb2Icon[0] = "src/babal1.jpeg";
@@ -126,12 +128,16 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb2Icon[2] = "src/chil3.jpg";
 		qb2Icon[3] = "src/bi4.jpeg";
 		qb2Icon[4] = "src/xianfazhiren5.jpeg";
+		qb2Icon[5] = "src/pizzahut.jpg";
+
 
 		qb3Icon[0] = "src/xiongdil1.jpeg";
 		qb3Icon[1] = "src/ail2.jpeg";
 		qb3Icon[2] = "src/bul3.jpg";
 		qb3Icon[3] = "src/shide4.jpeg";
 		qb3Icon[4] = "src/bukesiyi.jpeg";
+		qb3Icon[5] = "src/Mcdonalds.jpg";
+
 
 		//unbelievable
 
@@ -140,6 +146,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		questionlist[2] = "What is \"white\" in Chinese?";
 		questionlist[3] = "What is \"no\" in Chinese?";
 		questionlist[4] = "What is \"unbelievable\" in Chinese?";
+		
 
 
 
@@ -188,18 +195,19 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		correctanswers[2] = qb1;
 		correctanswers[3] = qb1;
 		correctanswers[4] = qb3;
+		correctanswers[5] = qb3;
 
 		startingprank = new JLabel("Guess which one is \"start\" in Chinese");
 		startingprank.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		startingprank.setBounds(300, 300, 700, 100);
 		card2.add(startingprank);
 
-		st1 = new JButton("a");
+		st1 = new JButton("关闭");
 		st1.setBounds(100,100,100,100);
 		st1.addActionListener(this);
 		card2.add(st1);
 
-		st2 = new JButton("b");
+		st2 = new JButton("开始");
 		st2.setBounds(500,100,100,100);
 		st2.addActionListener(this);
 		card2.add(st2);
