@@ -10,33 +10,44 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 	private Image qu1;
 	private Image qu2;
 	private Image qu3;
-
+	
+	
 	private int bg_width;
 	private int bg_height;
 	private int level = 1;
 	private int scorecalculator =0;
 	private int totalscore =0;
 	private int levelPosition=0;
-
+	
+	
 	private JLabel question; 
 	private JLabel levelnumber;
 	private JLabel scoreshowing;
 	private JLabel startingprank;
-
+	private JLabel qb1choicedescription;
+	private JLabel qb2choicedescription;
+	private JLabel qb3choicedescription;
+	private JLabel correctchoicedescription;
+	
+	
 	private JButton qb1;
 	private JButton qb2;
 	private JButton qb3;
 	private JButton st1;
 	private JButton st2;
+	private JButton correctpagecontinue;
 
-
+	
 	JButton[] correctanswers = new JButton[8];
 	String [] questionlist = new String[8];
 	String [] qb1Icon = new String[8];
 	String [] qb2Icon = new String[8];
 	String [] qb3Icon = new String[8];
+	String [] qb1buttondescription = new String[8];
+	String [] qb2buttondescription = new String[8];
+	String [] qb3buttondescription = new String[8];
 
-
+ 
 	//private int backgroundNum=0;
 
 	//switch questions
@@ -60,41 +71,48 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 			question.setText(questionlist[levelPosition]);
 			levelnumber.setText("Level " + (levelPosition+1));
 
-			if (levelPosition == 4) {
-				
-			}
 			if (levelPosition == 6) {
 
 			}
 
 			if (scorecalculator == 0) {
-				totalscore+=3;
+				//totalscore+=3;
 			}
 			else if (scorecalculator ==1) {
-				totalscore += 2;
+				//totalscore += 2;
 			}
 			else  {
-				totalscore +=1;
+				//totalscore +=1;
 			}
-			scorecalculator = 0;
-			scoreshowing.setText("Score: "+totalscore );
+			//scorecalculator = 0;
+			//scoreshowing.setText("Score: "+totalscore );
 		}
 		//private int scorecalculator =0;
 		//private int totalscore =0;
-		else {			
+		else {	
+			CardLayout cl = (CardLayout)(cards.getLayout());
+			cl.show(cards, "correcting");
+			
 			if (e.getSource() == qb1) {
-				qb1.setVisible(false);
-				scorecalculator++;
+				qb1choicedescription.setText(qb1buttondescription[levelPosition]);				
+				//scorecalculator++;
+				
 			}
 
 			else if (e.getSource() == qb2) {
-				scorecalculator++;
-				qb2.setVisible(false);
+				qb2choicedescription.setText(qb2buttondescription[levelPosition]);				
+
+				
+				//scorecalculator++;
+				//qb2.setVisible(false);
 
 			}
 			else if (e.getSource() == qb3){
-				qb3.setVisible(false);
-				scorecalculator++;
+				qb3choicedescription.setText(qb3buttondescription[levelPosition]);				
+
+				
+				
+			//	scorecalculator++;
 			}
 
 		}
@@ -109,6 +127,8 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		p.setLayout(null);
 		JPanel card2 = new JPanel();
 		card2.setLayout(null);
+		JPanel card3 = new JPanel();
+		card3.setLayout(null);
 		//JPanel card2 = new JPanel();
 
 		cards = new JPanel(new CardLayout());
@@ -119,7 +139,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb1Icon[2] = "src/bail3.jpg";
 		qb1Icon[3] = "src/bul3.jpg";
 		qb1Icon[4] = "src/qianfangbail5.jpeg";
-		qb1Icon[5] = "src/KFC.jpg";
+		qb1Icon[5] = "src/pizzahut.jpg";
 
 
 
@@ -128,7 +148,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb2Icon[2] = "src/chil3.jpg";
 		qb2Icon[3] = "src/bi4.jpeg";
 		qb2Icon[4] = "src/xianfazhiren5.jpeg";
-		qb2Icon[5] = "src/pizzahut.jpg";
+		qb2Icon[5] = "src/Mcdonalds.jpg";
 
 
 		qb3Icon[0] = "src/xiongdil1.jpeg";
@@ -136,7 +156,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb3Icon[2] = "src/bul3.jpg";
 		qb3Icon[3] = "src/shide4.jpeg";
 		qb3Icon[4] = "src/bukesiyi.jpeg";
-		qb3Icon[5] = "src/Mcdonalds.jpg";
+		qb3Icon[5] = "src/KFC.jpg";
 
 
 		//unbelievable
@@ -146,7 +166,31 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		questionlist[2] = "What is \"white\" in Chinese?";
 		questionlist[3] = "What is \"no\" in Chinese?";
 		questionlist[4] = "What is \"unbelievable\" in Chinese?";
+		questionlist[5] = "What is \"McDonald's\" in Chinese?";
 		
+		//description arrays
+		qb1buttondescription[0] = ""; //correct answer 妈妈
+		qb1buttondescription[1] = "龙 means dragon";
+		qb1buttondescription[2] = "";//correct answer 白
+		qb1buttondescription[3] = "";//correct answer 不
+		qb1buttondescription[4] = "千方百计 means try all kinds of ways and use all kinds of strategies";
+		qb1buttondescription[5] = "Your choice PIZZA HUT !";
+		
+		qb2buttondescription[0] = "爸 means father"; 
+		qb2buttondescription[1] = "";//
+		qb2buttondescription[2] = "吃 means eating";
+		qb2buttondescription[3] = "比 is compare in Chinese";
+		qb2buttondescription[4] = "先发制人 means take action first before anyone else get a chance to do it";
+		qb2buttondescription[5] = "";//
+		
+		qb3buttondescription[0] = "兄弟 means brother"; 
+		qb3buttondescription[1] = "爱 means love";
+		qb3buttondescription[2] = "不 means no (remember this!)";
+		qb3buttondescription[3] = "是的 means yes";
+		qb3buttondescription[4] = "";//
+		qb3buttondescription[5] = "\"KFC\"";
+
+
 
 
 
@@ -169,6 +213,33 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		levelnumber.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
 		levelnumber.setBounds(50, 20, 600, 100);
 		card1.add(levelnumber);
+		
+		startingprank = new JLabel("Guess which one is \"start\" in Chinese");
+		startingprank.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		startingprank.setBounds(300, 300, 700, 100);
+		card2.add(startingprank);
+		
+		qb1choicedescription = new JLabel("");
+		qb1choicedescription.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		qb1choicedescription.setBounds(300, 300, 700, 100);
+		card3.add(qb1choicedescription);
+		
+		qb2choicedescription = new JLabel("");
+		qb2choicedescription.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		qb2choicedescription.setBounds(300, 300, 700, 100);
+		card3.add(qb2choicedescription);
+		
+		qb3choicedescription = new JLabel("");
+		qb3choicedescription.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		qb3choicedescription.setBounds(300, 300, 700, 100);
+		card3.add(qb3choicedescription);
+		
+		correctchoicedescription = new JLabel();
+		correctchoicedescription.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
+		correctchoicedescription.setBounds(600,600,700,100);
+		card3.add(correctchoicedescription);
+		
+		
 
 		qb1 = new JButton();
 		qb1.setBounds(150, 200, 316,202);
@@ -188,20 +259,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		qb3.addActionListener(this);
 		card1.add(qb3);
 		validate();
-
-		// Setup all the correct answers
-		correctanswers[0] = qb1;
-		correctanswers[1] = qb2;
-		correctanswers[2] = qb1;
-		correctanswers[3] = qb1;
-		correctanswers[4] = qb3;
-		correctanswers[5] = qb3;
-
-		startingprank = new JLabel("Guess which one is \"start\" in Chinese");
-		startingprank.setFont(new Font("SansSerif Plain", Font.PLAIN, 25));
-		startingprank.setBounds(300, 300, 700, 100);
-		card2.add(startingprank);
-
+		
 		st1 = new JButton("关闭");
 		st1.setBounds(100,100,100,100);
 		st1.addActionListener(this);
@@ -211,11 +269,28 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		st2.setBounds(500,100,100,100);
 		st2.addActionListener(this);
 		card2.add(st2);
+		
+		correctpagecontinue = new JButton("test-go");
+		correctpagecontinue.setBounds(1000, 1000, 200, 200);
+		correctpagecontinue.addActionListener(this);
+		card3.add(correctpagecontinue);
+		
+		
+		
+		// Setup all the correct answers
+		correctanswers[0] = qb1;
+		correctanswers[1] = qb2;
+		correctanswers[2] = qb1;
+		correctanswers[3] = qb1;
+		correctanswers[4] = qb3;
+		correctanswers[5] = qb2;
 
-
+		
+		
 		cards.add(card2, "start");
 		cards.add(card1, "main");
-
+		cards.add(card3, "correcting");
+		
 		f.add(cards);
 		f.setTitle("Chinese Learning game");
 		f.setSize(p.getWidth(), p.getHeight());
@@ -235,7 +310,6 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		bg_width = bg.getWidth(null);
 		bg_height = bg.getHeight(null);
 		System.out.println("Width: " + bg_width);
-
 		addMouseListener(this);
 	}
 	//background
