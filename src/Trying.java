@@ -127,7 +127,7 @@ public class Trying extends JPanel implements ActionListener, MouseListener{
 		p.setLayout(null);
 		JPanel card2 = new JPanel();
 		card2.setLayout(null);
-		JPanel card3 = new JPanel();
+		JPanel card3 = new backgroundcard3();
 		card3.setLayout(null);
 		//JPanel card2 = new JPanel();
 
